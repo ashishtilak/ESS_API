@@ -1,0 +1,1417 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F264F8AC-4978-47E7-B102-1FD4CD1976D6}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ESS</RootNamespace>
+    <AssemblyName>ESS</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\MappingProfile.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Api\AddressProofController.cs" />
+    <Compile Include="Controllers\Api\AppraisalLetterController.cs" />
+    <Compile Include="Controllers\Api\AppReleaseController.cs" />
+    <Compile Include="Controllers\Api\AutoMailController.cs" />
+    <Compile Include="Controllers\Api\ChangeReleaseController.cs" />
+    <Compile Include="Controllers\Api\EmpAddressController.cs" />
+    <Compile Include="Controllers\Api\EmployeeController.cs" />
+    <Compile Include="Controllers\Api\EmpSeparationController.cs" />
+    <Compile Include="Controllers\Api\EmpUniformController.cs" />
+    <Compile Include="Controllers\Api\FandFController.cs" />
+    <Compile Include="Controllers\Api\Form16Controller.cs" />
+    <Compile Include="Controllers\Api\GateInOutController.cs" />
+    <Compile Include="Controllers\Api\GatePassController.cs" />
+    <Compile Include="Controllers\Api\GpAdviceController.cs" />
+    <Compile Include="Controllers\Api\HolidayController.cs" />
+    <Compile Include="Controllers\Api\LeaveApplicationController.cs" />
+    <Compile Include="Controllers\Api\LeaveBalanceController.cs" />
+    <Compile Include="Controllers\Api\LeaveEntryController.cs" />
+    <Compile Include="Controllers\Api\LeavePostingController.cs" />
+    <Compile Include="Controllers\Api\LeaveReportController.cs" />
+    <Compile Include="Controllers\Api\LeaveValidateController.cs" />
+    <Compile Include="Controllers\Api\LoginController.cs" />
+    <Compile Include="Controllers\Api\ManageLeaveController.cs" />
+    <Compile Include="Controllers\Api\MasterUploadController.cs" />
+    <Compile Include="Controllers\Api\MedDependentController.cs" />
+    <Compile Include="Controllers\Api\MedicalFitnessController.cs" />
+    <Compile Include="Controllers\Api\MedIntimationController.cs" />
+    <Compile Include="Controllers\Api\MissedPunchController.cs" />
+    <Compile Include="Controllers\Api\NoDuesController.cs" />
+    <Compile Include="Controllers\Api\OpenMonthController.cs" />
+    <Compile Include="Controllers\Api\ProgressReviewController.cs" />
+    <Compile Include="Controllers\Api\ReimbursementController.cs" />
+    <Compile Include="Controllers\Api\ReleaseStrategyController.cs" />
+    <Compile Include="Controllers\Api\RequestController.cs" />
+    <Compile Include="Controllers\Api\RolesController.cs" />
+    <Compile Include="Controllers\Api\SalarySlipController.cs" />
+    <Compile Include="Controllers\Api\ShiftScheduleController.cs" />
+    <Compile Include="Controllers\Api\ShiftScheduleUpdateController.cs" />
+    <Compile Include="Controllers\Api\ShortLeaveController.cs" />
+    <Compile Include="Controllers\Api\SyncController.cs" />
+    <Compile Include="Controllers\Api\TaxDeclarationController.cs" />
+    <Compile Include="Controllers\Api\TpaController.cs" />
+    <Compile Include="Controllers\Api\VaccinationController.cs" />
+    <Compile Include="Controllers\Api\VehicleReqController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ReimbursementDto.cs" />
+    <Compile Include="Dto\AddressProofDto.cs" />
+    <Compile Include="Dto\ApplReleaseStatusDto.cs" />
+    <Compile Include="Dto\AttdShiftScheduleDto.cs" />
+    <Compile Include="Dto\BankDto.cs" />
+    <Compile Include="Dto\CategoryDto.cs" />
+    <Compile Include="Dto\CompanyDto.cs" />
+    <Compile Include="Dto\DepartmentDto.cs" />
+    <Compile Include="Dto\DesignationDto.cs" />
+    <Compile Include="Dto\EmpAddressDto.cs" />
+    <Compile Include="Dto\EmpDetailsDto.cs" />
+    <Compile Include="Dto\EmpEduDto.cs" />
+    <Compile Include="Dto\EmpFamilyDto.cs" />
+    <Compile Include="Dto\EmployeeDto.cs" />
+    <Compile Include="Dto\EmpPunchBlockDto.cs" />
+    <Compile Include="Dto\EmpSeparationDto.cs" />
+    <Compile Include="Dto\EmpTypeDto.cs" />
+    <Compile Include="Dto\EmpUniformDto.cs" />
+    <Compile Include="Dto\FullAndFinalDto.cs" />
+    <Compile Include="Dto\GaReleaseStrategyDto.cs" />
+    <Compile Include="Dto\GaReleaseStrategyLevelDto.cs" />
+    <Compile Include="Dto\GatePassDto.cs" />
+    <Compile Include="Dto\GpAdviceDetailsDto.cs" />
+    <Compile Include="Dto\GpAdviceDto.cs" />
+    <Compile Include="Dto\GpReleaseStrategyDto.cs" />
+    <Compile Include="Dto\GpReleaseStrategyLevelDto.cs" />
+    <Compile Include="Dto\GradeDto.cs" />
+    <Compile Include="Dto\HolidayDto.cs" />
+    <Compile Include="Dto\LeaveApplicationDetailDto.cs" />
+    <Compile Include="Dto\LeaveApplicationDto.cs" />
+    <Compile Include="Dto\LeaveBalanceDto.cs" />
+    <Compile Include="Dto\LeaveEntryDto.cs" />
+    <Compile Include="Dto\LeavePostingDto.cs" />
+    <Compile Include="Dto\LeaveTypeDto.cs" />
+    <Compile Include="Dto\LoginDto.cs" />
+    <Compile Include="Dto\MaterialDto.cs" />
+    <Compile Include="Dto\MedDependentDto.cs" />
+    <Compile Include="Dto\MedEmpUhidDto.cs" />
+    <Compile Include="Dto\MedicalFitnessDto.cs" />
+    <Compile Include="Dto\MedIntimationDto.cs" />
+    <Compile Include="Dto\MissedPunchDto.cs" />
+    <Compile Include="Dto\MissedPunchReleaseStatusDto.cs" />
+    <Compile Include="Dto\NoDuesDeptDetailsDto.cs" />
+    <Compile Include="Dto\NoDuesDeptDto.cs" />
+    <Compile Include="Dto\NoDuesIt.cs" />
+    <Compile Include="Dto\NoDuesMasterDto.cs" />
+    <Compile Include="Dto\NoDuesReleaseStatusDto.cs" />
+    <Compile Include="Dto\NoDuesStatusDto.cs" />
+    <Compile Include="Dto\PerfAttdDto.cs" />
+    <Compile Include="Dto\PerfPunchDto.cs" />
+    <Compile Include="Dto\ReimbConvDto.cs" />
+    <Compile Include="Dto\ReleaseGroupDto.cs" />
+    <Compile Include="Dto\ReleaseStrategyDto.cs" />
+    <Compile Include="Dto\ReleaseStrategyLevelDto.cs" />
+    <Compile Include="Dto\RequestDetailsDto.cs" />
+    <Compile Include="Dto\RequestDto.cs" />
+    <Compile Include="Dto\RequestReleaseDto.cs" />
+    <Compile Include="Dto\ReviewDetailDto.cs" />
+    <Compile Include="Dto\ReviewDto.cs" />
+    <Compile Include="Dto\RoleAuthDto.cs" />
+    <Compile Include="Dto\SapUserIdDto.cs" />
+    <Compile Include="Dto\SectionDto.cs" />
+    <Compile Include="Dto\ShiftDto.cs" />
+    <Compile Include="Dto\ShiftScheduleDetailDto.cs" />
+    <Compile Include="Dto\ShiftScheduleDto.cs" />
+    <Compile Include="Dto\StationDto.cs" />
+    <Compile Include="Dto\TaxDetailsBankDepositDto.cs" />
+    <Compile Include="Dto\TaxDeclarationDto.cs" />
+    <Compile Include="Dto\TaxDetailsRentDto.cs" />
+    <Compile Include="Dto\TaxDetailsSukanyaDto.cs" />
+    <Compile Include="Dto\TaxDeclReportDto.cs" />
+    <Compile Include="Dto\TaxDetailsInsuranceDto.cs" />
+    <Compile Include="Dto\TaxDetailsMutualFundsDto.cs" />
+    <Compile Include="Dto\TaxDetailsNscDto.cs" />
+    <Compile Include="Dto\TaxDetailsPpfDto.cs" />
+    <Compile Include="Dto\TaxDetailsUlipDto.cs" />
+    <Compile Include="Dto\TpaAttdDto.cs" />
+    <Compile Include="Dto\TpaReleaseDto.cs" />
+    <Compile Include="Dto\TpaSanctionDto.cs" />
+    <Compile Include="Dto\UnitDto.cs" />
+    <Compile Include="Dto\VaccinationDto.cs" />
+    <Compile Include="Dto\VehicleReqDto.cs" />
+    <Compile Include="Dto\VendorDto.cs" />
+    <Compile Include="Dto\WorkGroupDto.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\CustomHelper.cs" />
+    <Compile Include="Helpers\FileResult.cs" />
+    <Compile Include="Migrations\201712260719014_InitialModel.cs" />
+    <Compile Include="Migrations\201712260719014_InitialModel.Designer.cs">
+      <DependentUpon>201712260719014_InitialModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712290834269_AddedSection.cs" />
+    <Compile Include="Migrations\201712290834269_AddedSection.Designer.cs">
+      <DependentUpon>201712290834269_AddedSection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712290913252_AddedSecCodeEverywhere.cs" />
+    <Compile Include="Migrations\201712290913252_AddedSecCodeEverywhere.Designer.cs">
+      <DependentUpon>201712290913252_AddedSecCodeEverywhere.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801040519351_AddedFieldsToLeaveAppDtl.cs" />
+    <Compile Include="Migrations\201801040519351_AddedFieldsToLeaveAppDtl.Designer.cs">
+      <DependentUpon>201801040519351_AddedFieldsToLeaveAppDtl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801081332261_AddedActiveInLeaveType.cs" />
+    <Compile Include="Migrations\201801081332261_AddedActiveInLeaveType.Designer.cs">
+      <DependentUpon>201801081332261_AddedActiveInLeaveType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801091222277_AddedLeaveRules.cs" />
+    <Compile Include="Migrations\201801091222277_AddedLeaveRules.Designer.cs">
+      <DependentUpon>201801091222277_AddedLeaveRules.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801091225204_AddedLeaveRules1.cs" />
+    <Compile Include="Migrations\201801091225204_AddedLeaveRules1.Designer.cs">
+      <DependentUpon>201801091225204_AddedLeaveRules1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801091403457_AddedLeaveRules2.cs" />
+    <Compile Include="Migrations\201801091403457_AddedLeaveRules2.Designer.cs">
+      <DependentUpon>201801091403457_AddedLeaveRules2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801240511397_AddedCancellationInLeaveApp.cs" />
+    <Compile Include="Migrations\201801240511397_AddedCancellationInLeaveApp.Designer.cs">
+      <DependentUpon>201801240511397_AddedCancellationInLeaveApp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801240517020_AddedCancellationInLeaveAppDtl.cs" />
+    <Compile Include="Migrations\201801240517020_AddedCancellationInLeaveAppDtl.Designer.cs">
+      <DependentUpon>201801240517020_AddedCancellationInLeaveAppDtl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802080535515_RemovedCatFromRelease.cs" />
+    <Compile Include="Migrations\201802080535515_RemovedCatFromRelease.Designer.cs">
+      <DependentUpon>201802080535515_RemovedCatFromRelease.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802160458595_ChangeLengthOfRelCode.cs" />
+    <Compile Include="Migrations\201802160458595_ChangeLengthOfRelCode.Designer.cs">
+      <DependentUpon>201802160458595_ChangeLengthOfRelCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802160500231_ChangeLengthOfRelCodeInAuth.cs" />
+    <Compile Include="Migrations\201802160500231_ChangeLengthOfRelCodeInAuth.Designer.cs">
+      <DependentUpon>201802160500231_ChangeLengthOfRelCodeInAuth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802160503215_AddedEmpCodeAsKeyInAuth.cs" />
+    <Compile Include="Migrations\201802160503215_AddedEmpCodeAsKeyInAuth.Designer.cs">
+      <DependentUpon>201802160503215_AddedEmpCodeAsKeyInAuth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802161009065_ChangeRelCodeLenInAPpRel.cs" />
+    <Compile Include="Migrations\201802161009065_ChangeRelCodeLenInAPpRel.Designer.cs">
+      <DependentUpon>201802161009065_ChangeRelCodeLenInAPpRel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802260401171_AddedEmailtoEmployeeModel.cs" />
+    <Compile Include="Migrations\201802260401171_AddedEmailtoEmployeeModel.Designer.cs">
+      <DependentUpon>201802260401171_AddedEmailtoEmployeeModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803260423584_AddCancellationPostedFlag.cs" />
+    <Compile Include="Migrations\201803260423584_AddCancellationPostedFlag.Designer.cs">
+      <DependentUpon>201803260423584_AddCancellationPostedFlag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803270455152_RemoveFieldsFromReleaseStrategy.cs" />
+    <Compile Include="Migrations\201803270455152_RemoveFieldsFromReleaseStrategy.Designer.cs">
+      <DependentUpon>201803270455152_RemoveFieldsFromReleaseStrategy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806270412151_RemoveSecCOde.cs" />
+    <Compile Include="Migrations\201806270412151_RemoveSecCOde.Designer.cs">
+      <DependentUpon>201806270412151_RemoveSecCOde.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807021147009_AddLeaveType.cs" />
+    <Compile Include="Migrations\201807021147009_AddLeaveType.Designer.cs">
+      <DependentUpon>201807021147009_AddLeaveType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807180558313_AddedEmpUniform.cs" />
+    <Compile Include="Migrations\201807180558313_AddedEmpUniform.Designer.cs">
+      <DependentUpon>201807180558313_AddedEmpUniform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807180708406_UpdateEmpUniform.cs" />
+    <Compile Include="Migrations\201807180708406_UpdateEmpUniform.Designer.cs">
+      <DependentUpon>201807180708406_UpdateEmpUniform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807180715490_UpdateEmpUniforms.cs" />
+    <Compile Include="Migrations\201807180715490_UpdateEmpUniforms.Designer.cs">
+      <DependentUpon>201807180715490_UpdateEmpUniforms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807270535433_GatePassDbCreated.cs" />
+    <Compile Include="Migrations\201807270535433_GatePassDbCreated.Designer.cs">
+      <DependentUpon>201807270535433_GatePassDbCreated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807270726347_GatePassCharFieldConverted.cs" />
+    <Compile Include="Migrations\201807270726347_GatePassCharFieldConverted.Designer.cs">
+      <DependentUpon>201807270726347_GatePassCharFieldConverted.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808070927011_AddedEmployeePresentAddress.cs" />
+    <Compile Include="Migrations\201808070927011_AddedEmployeePresentAddress.Designer.cs">
+      <DependentUpon>201808070927011_AddedEmployeePresentAddress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808110426058_AddPerEmail.cs" />
+    <Compile Include="Migrations\201808110426058_AddPerEmail.Designer.cs">
+      <DependentUpon>201808110426058_AddPerEmail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808110936454_OtFlagAddedInEmp.cs" />
+    <Compile Include="Migrations\201808110936454_OtFlagAddedInEmp.Designer.cs">
+      <DependentUpon>201808110936454_OtFlagAddedInEmp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808130715415_AddedCounterInEmpAddress.cs" />
+    <Compile Include="Migrations\201808130715415_AddedCounterInEmpAddress.Designer.cs">
+      <DependentUpon>201808130715415_AddedCounterInEmpAddress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810091010248_GPReleaseFieldsAdded.cs" />
+    <Compile Include="Migrations\201810091010248_GPReleaseFieldsAdded.Designer.cs">
+      <DependentUpon>201810091010248_GPReleaseFieldsAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810120451136_AddYearMonthToGatePass.cs" />
+    <Compile Include="Migrations\201810120451136_AddYearMonthToGatePass.Designer.cs">
+      <DependentUpon>201810120451136_AddYearMonthToGatePass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810130648502_AttdFieldsinGatePassModel.cs" />
+    <Compile Include="Migrations\201810130648502_AttdFieldsinGatePassModel.Designer.cs">
+      <DependentUpon>201810130648502_AttdFieldsinGatePassModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810130702191_NullableDateiinGatePassModel.cs" />
+    <Compile Include="Migrations\201810130702191_NullableDateiinGatePassModel.Designer.cs">
+      <DependentUpon>201810130702191_NullableDateiinGatePassModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810220715402_AddedAttdFieldsInGatePass.cs" />
+    <Compile Include="Migrations\201810220715402_AddedAttdFieldsInGatePass.Designer.cs">
+      <DependentUpon>201810220715402_AddedAttdFieldsInGatePass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810220726599_UpdDtUserInReleaseStrategy.cs" />
+    <Compile Include="Migrations\201810220726599_UpdDtUserInReleaseStrategy.Designer.cs">
+      <DependentUpon>201810220726599_UpdDtUserInReleaseStrategy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810301215175_AddFlagsInEmpModel.cs" />
+    <Compile Include="Migrations\201810301215175_AddFlagsInEmpModel.Designer.cs">
+      <DependentUpon>201810301215175_AddFlagsInEmpModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811020546528_NewGpReleaseStrategy.cs" />
+    <Compile Include="Migrations\201811020546528_NewGpReleaseStrategy.Designer.cs">
+      <DependentUpon>201811020546528_NewGpReleaseStrategy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811020604427_AddNightRelFlaginRelAuth.cs" />
+    <Compile Include="Migrations\201811020604427_AddNightRelFlaginRelAuth.Designer.cs">
+      <DependentUpon>201811020604427_AddNightRelFlaginRelAuth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811021008136_GpReleaseStrategyInGatepass.cs" />
+    <Compile Include="Migrations\201811021008136_GpReleaseStrategyInGatepass.Designer.cs">
+      <DependentUpon>201811021008136_GpReleaseStrategyInGatepass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811021017556_ChangeFieldinGP.cs" />
+    <Compile Include="Migrations\201811021017556_ChangeFieldinGP.Designer.cs">
+      <DependentUpon>201811021017556_ChangeFieldinGP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811021023504_RemovedForeignKeyinGP.cs" />
+    <Compile Include="Migrations\201811021023504_RemovedForeignKeyinGP.Designer.cs">
+      <DependentUpon>201811021023504_RemovedForeignKeyinGP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811130708498_AddNightFlagInGpReleaseStrategy.cs" />
+    <Compile Include="Migrations\201811130708498_AddNightFlagInGpReleaseStrategy.Designer.cs">
+      <DependentUpon>201811130708498_AddNightFlagInGpReleaseStrategy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812221157091_AddPostingAuditFieldsInLeave.cs" />
+    <Compile Include="Migrations\201812221157091_AddPostingAuditFieldsInLeave.Designer.cs">
+      <DependentUpon>201812221157091_AddPostingAuditFieldsInLeave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902070634387_LocationModel_EmpModelChange.cs" />
+    <Compile Include="Migrations\201902070634387_LocationModel_EmpModelChange.Designer.cs">
+      <DependentUpon>201902070634387_LocationModel_EmpModelChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902140547119_LocationStaticFields.cs" />
+    <Compile Include="Migrations\201902140547119_LocationStaticFields.Designer.cs">
+      <DependentUpon>201902140547119_LocationStaticFields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902191054293_AddLocationCodeInModels.cs" />
+    <Compile Include="Migrations\201902191054293_AddLocationCodeInModels.Designer.cs">
+      <DependentUpon>201902191054293_AddLocationCodeInModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904220905541_TaxDeclarationTables.cs" />
+    <Compile Include="Migrations\201904220905541_TaxDeclarationTables.Designer.cs">
+      <DependentUpon>201904220905541_TaxDeclarationTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904241125538_AddFieldsInTaxDeclaratoin.cs" />
+    <Compile Include="Migrations\201904241125538_AddFieldsInTaxDeclaratoin.Designer.cs">
+      <DependentUpon>201904241125538_AddFieldsInTaxDeclaratoin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904270502577_AddTaxConfig.cs" />
+    <Compile Include="Migrations\201904270502577_AddTaxConfig.Designer.cs">
+      <DependentUpon>201904270502577_AddTaxConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904270519044_AddSapIdinEmployee.cs" />
+    <Compile Include="Migrations\201904270519044_AddSapIdinEmployee.Designer.cs">
+      <DependentUpon>201904270519044_AddSapIdinEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904270616460_AddCompAccInEmployee.cs" />
+    <Compile Include="Migrations\201904270616460_AddCompAccInEmployee.Designer.cs">
+      <DependentUpon>201904270616460_AddCompAccInEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905011218254_AddBanks.cs" />
+    <Compile Include="Migrations\201905011218254_AddBanks.Designer.cs">
+      <DependentUpon>201905011218254_AddBanks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905011227070_ChangeBankNameLength.cs" />
+    <Compile Include="Migrations\201905011227070_ChangeBankNameLength.Designer.cs">
+      <DependentUpon>201905011227070_ChangeBankNameLength.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905020418162_AddSSfieldInTaxDeclaration.cs" />
+    <Compile Include="Migrations\201905020418162_AddSSfieldInTaxDeclaration.Designer.cs">
+      <DependentUpon>201905020418162_AddSSfieldInTaxDeclaration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905060500550_MoreTaxDetailsAdded.cs" />
+    <Compile Include="Migrations\201905060500550_MoreTaxDetailsAdded.Designer.cs">
+      <DependentUpon>201905060500550_MoreTaxDetailsAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905060524210_ChangesInTaxDetails.cs" />
+    <Compile Include="Migrations\201905060524210_ChangesInTaxDetails.Designer.cs">
+      <DependentUpon>201905060524210_ChangesInTaxDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905080550478_AddTaxDetailsRent.cs" />
+    <Compile Include="Migrations\201905080550478_AddTaxDetailsRent.Designer.cs">
+      <DependentUpon>201905080550478_AddTaxDetailsRent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905101157501_AddFieldsInTaxDeclarationheader.cs" />
+    <Compile Include="Migrations\201905101157501_AddFieldsInTaxDeclarationheader.Designer.cs">
+      <DependentUpon>201905101157501_AddFieldsInTaxDeclarationheader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905200626275_AddCloseFlagInTaxConfig.cs" />
+    <Compile Include="Migrations\201905200626275_AddCloseFlagInTaxConfig.Designer.cs">
+      <DependentUpon>201905200626275_AddCloseFlagInTaxConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905210915519_AddTaxDeclarationHistory.cs" />
+    <Compile Include="Migrations\201905210915519_AddTaxDeclarationHistory.Designer.cs">
+      <DependentUpon>201905210915519_AddTaxDeclarationHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905210941264_AddTaxDeclarationHistoryKey.cs" />
+    <Compile Include="Migrations\201905210941264_AddTaxDeclarationHistoryKey.Designer.cs">
+      <DependentUpon>201905210941264_AddTaxDeclarationHistoryKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905280336068_AddRoles.cs" />
+    <Compile Include="Migrations\201905280336068_AddRoles.Designer.cs">
+      <DependentUpon>201905280336068_AddRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905300944281_AddLockedFlaginTaxDeclaration.cs" />
+    <Compile Include="Migrations\201905300944281_AddLockedFlaginTaxDeclaration.Designer.cs">
+      <DependentUpon>201905300944281_AddLockedFlaginTaxDeclaration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908010419268_AddGatePassAdvice.cs" />
+    <Compile Include="Migrations\201908010419268_AddGatePassAdvice.Designer.cs">
+      <DependentUpon>201908010419268_AddGatePassAdvice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908010637256_AddGaReleaseStrategy.cs" />
+    <Compile Include="Migrations\201908010637256_AddGaReleaseStrategy.Designer.cs">
+      <DependentUpon>201908010637256_AddGaReleaseStrategy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908011010578_ChangeInGpAdvice.cs" />
+    <Compile Include="Migrations\201908011010578_ChangeInGpAdvice.Designer.cs">
+      <DependentUpon>201908011010578_ChangeInGpAdvice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908051038291_ChangeInGpAdvice1.cs" />
+    <Compile Include="Migrations\201908051038291_ChangeInGpAdvice1.Designer.cs">
+      <DependentUpon>201908051038291_ChangeInGpAdvice1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908060607267_AddedPostingFieldsinGpAdvice.cs" />
+    <Compile Include="Migrations\201908060607267_AddedPostingFieldsinGpAdvice.Designer.cs">
+      <DependentUpon>201908060607267_AddedPostingFieldsinGpAdvice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908170823139_AddedFieldsinGpAdvice.cs" />
+    <Compile Include="Migrations\201908170823139_AddedFieldsinGpAdvice.Designer.cs">
+      <DependentUpon>201908170823139_AddedFieldsinGpAdvice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908190819061_AddMaterialMaster.cs" />
+    <Compile Include="Migrations\201908190819061_AddMaterialMaster.Designer.cs">
+      <DependentUpon>201908190819061_AddMaterialMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908200539032_AddFieldInMaterialMaster.cs" />
+    <Compile Include="Migrations\201908200539032_AddFieldInMaterialMaster.Designer.cs">
+      <DependentUpon>201908200539032_AddFieldInMaterialMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908200858438_AddedVendorMaster.cs" />
+    <Compile Include="Migrations\201908200858438_AddedVendorMaster.Designer.cs">
+      <DependentUpon>201908200858438_AddedVendorMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908210358412_AddHsnInMaterialMaster.cs" />
+    <Compile Include="Migrations\201908210358412_AddHsnInMaterialMaster.Designer.cs">
+      <DependentUpon>201908210358412_AddHsnInMaterialMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908210437111_test.cs" />
+    <Compile Include="Migrations\201908210437111_test.Designer.cs">
+      <DependentUpon>201908210437111_test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908230532294_AddGaReleaserFlaginEmpMast.cs" />
+    <Compile Include="Migrations\201908230532294_AddGaReleaserFlaginEmpMast.Designer.cs">
+      <DependentUpon>201908230532294_AddGaReleaserFlaginEmpMast.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911270911271_CoffDateAdded.cs" />
+    <Compile Include="Migrations\201911270911271_CoffDateAdded.Designer.cs">
+      <DependentUpon>201911270911271_CoffDateAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911290632331_ChangeInLeaveRules.cs" />
+    <Compile Include="Migrations\201911290632331_ChangeInLeaveRules.Designer.cs">
+      <DependentUpon>201911290632331_ChangeInLeaveRules.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001060849324_AddFieldToTaxStructure.cs" />
+    <Compile Include="Migrations\202001060849324_AddFieldToTaxStructure.Designer.cs">
+      <DependentUpon>202001060849324_AddFieldToTaxStructure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001091013327_LeaveAppDetailFieldChanges.cs" />
+    <Compile Include="Migrations\202001091013327_LeaveAppDetailFieldChanges.Designer.cs">
+      <DependentUpon>202001091013327_LeaveAppDetailFieldChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001160507395_ChangeInLocationModel.cs" />
+    <Compile Include="Migrations\202001160507395_ChangeInLocationModel.Designer.cs">
+      <DependentUpon>202001160507395_ChangeInLocationModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002080440514_RemovedPKFromTaxTables.cs" />
+    <Compile Include="Migrations\202002080440514_RemovedPKFromTaxTables.Designer.cs">
+      <DependentUpon>202002080440514_RemovedPKFromTaxTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002080744461_AddCompositePKinTaxTables.cs" />
+    <Compile Include="Migrations\202002080744461_AddCompositePKinTaxTables.Designer.cs">
+      <DependentUpon>202002080744461_AddCompositePKinTaxTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002240701364_FinLockInTaxDeclaration.cs" />
+    <Compile Include="Migrations\202002240701364_FinLockInTaxDeclaration.Designer.cs">
+      <DependentUpon>202002240701364_FinLockInTaxDeclaration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004240636488_AddTaxRegimeInTaxDeclaration.cs" />
+    <Compile Include="Migrations\202004240636488_AddTaxRegimeInTaxDeclaration.Designer.cs">
+      <DependentUpon>202004240636488_AddTaxRegimeInTaxDeclaration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005111241404_FieldChangesInEmpAddress.cs" />
+    <Compile Include="Migrations\202005111241404_FieldChangesInEmpAddress.Designer.cs">
+      <DependentUpon>202005111241404_FieldChangesInEmpAddress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005130430212_ChangeInFieldLengthEmpAddress.cs" />
+    <Compile Include="Migrations\202005130430212_ChangeInFieldLengthEmpAddress.Designer.cs">
+      <DependentUpon>202005130430212_ChangeInFieldLengthEmpAddress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005210505581_WhyThisErrorIsComing.cs" />
+    <Compile Include="Migrations\202005210505581_WhyThisErrorIsComing.Designer.cs">
+      <DependentUpon>202005210505581_WhyThisErrorIsComing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006080553093_AddBirthdatePanInEmployee.cs" />
+    <Compile Include="Migrations\202006080553093_AddBirthdatePanInEmployee.Designer.cs">
+      <DependentUpon>202006080553093_AddBirthdatePanInEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006110856474_ShiftScheduleTables.cs" />
+    <Compile Include="Migrations\202006110856474_ShiftScheduleTables.Designer.cs">
+      <DependentUpon>202006110856474_ShiftScheduleTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006120627566_ShiftScheduleOpenMonthTable.cs" />
+    <Compile Include="Migrations\202006120627566_ShiftScheduleOpenMonthTable.Designer.cs">
+      <DependentUpon>202006120627566_ShiftScheduleOpenMonthTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006160713325_AddFiledInLeaveDetails.cs" />
+    <Compile Include="Migrations\202006160713325_AddFiledInLeaveDetails.Designer.cs">
+      <DependentUpon>202006160713325_AddFiledInLeaveDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006161045051_AddRemarkFieldInShiftSchedule.cs" />
+    <Compile Include="Migrations\202006161045051_AddRemarkFieldInShiftSchedule.Designer.cs">
+      <DependentUpon>202006161045051_AddRemarkFieldInShiftSchedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006180655592_ChangeKeyInShiftSchedule.cs" />
+    <Compile Include="Migrations\202006180655592_ChangeKeyInShiftSchedule.Designer.cs">
+      <DependentUpon>202006180655592_ChangeKeyInShiftSchedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009150421411_AddReimbAndReimbConvTables.cs" />
+    <Compile Include="Migrations\202009150421411_AddReimbAndReimbConvTables.Designer.cs">
+      <DependentUpon>202009150421411_AddReimbAndReimbConvTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010080455300_TaxHomeLoan2.cs" />
+    <Compile Include="Migrations\202010080455300_TaxHomeLoan2.Designer.cs">
+      <DependentUpon>202010080455300_TaxHomeLoan2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010090516174_TaxDeclFieldAddLoan2.cs" />
+    <Compile Include="Migrations\202010090516174_TaxDeclFieldAddLoan2.Designer.cs">
+      <DependentUpon>202010090516174_TaxDeclFieldAddLoan2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010201057022_MediclaimInitialConfig.cs" />
+    <Compile Include="Migrations\202010201057022_MediclaimInitialConfig.Designer.cs">
+      <DependentUpon>202010201057022_MediclaimInitialConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010210529578_ChangeInMedDependentModel.cs" />
+    <Compile Include="Migrations\202010210529578_ChangeInMedDependentModel.Designer.cs">
+      <DependentUpon>202010210529578_ChangeInMedDependentModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010270733354_MedicalFitness.cs" />
+    <Compile Include="Migrations\202010270733354_MedicalFitness.Designer.cs">
+      <DependentUpon>202010270733354_MedicalFitness.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010281153237_ChangeInMedDependent.cs" />
+    <Compile Include="Migrations\202010281153237_ChangeInMedDependent.Designer.cs">
+      <DependentUpon>202010281153237_ChangeInMedDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011090844157_InitialNoDuesConfig.cs" />
+    <Compile Include="Migrations\202011090844157_InitialNoDuesConfig.Designer.cs">
+      <DependentUpon>202011090844157_InitialNoDuesConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011181217593_NoDuesDeptDetails.cs" />
+    <Compile Include="Migrations\202011181217593_NoDuesDeptDetails.Designer.cs">
+      <DependentUpon>202011181217593_NoDuesDeptDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011300536431_NoDuesMasterChanges.cs" />
+    <Compile Include="Migrations\202011300536431_NoDuesMasterChanges.Designer.cs">
+      <DependentUpon>202011300536431_NoDuesMasterChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012010349308_NoDuesUnitHeadRelease.cs" />
+    <Compile Include="Migrations\202012010349308_NoDuesUnitHeadRelease.Designer.cs">
+      <DependentUpon>202012010349308_NoDuesUnitHeadRelease.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012181240097_AddNewFieldInMedDependent.cs" />
+    <Compile Include="Migrations\202012181240097_AddNewFieldInMedDependent.Designer.cs">
+      <DependentUpon>202012181240097_AddNewFieldInMedDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101221110547_RequestForBackDatedSSChange.cs" />
+    <Compile Include="Migrations\202101221110547_RequestForBackDatedSSChange.Designer.cs">
+      <DependentUpon>202101221110547_RequestForBackDatedSSChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104190617565_NewAddressFieldsAdded.cs" />
+    <Compile Include="Migrations\202104190617565_NewAddressFieldsAdded.Designer.cs">
+      <DependentUpon>202104190617565_NewAddressFieldsAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104290934011_IsSubmittedAddedInTaxDecl.cs" />
+    <Compile Include="Migrations\202104290934011_IsSubmittedAddedInTaxDecl.Designer.cs">
+      <DependentUpon>202104290934011_IsSubmittedAddedInTaxDecl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105260449262_EmpSeparation.cs" />
+    <Compile Include="Migrations\202105260449262_EmpSeparation.Designer.cs">
+      <DependentUpon>202105260449262_EmpSeparation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106110957254_ChangesInEmpSeparation.cs" />
+    <Compile Include="Migrations\202106110957254_ChangesInEmpSeparation.Designer.cs">
+      <DependentUpon>202106110957254_ChangesInEmpSeparation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107060425460_MissedPunchModule.cs" />
+    <Compile Include="Migrations\202107060425460_MissedPunchModule.Designer.cs">
+      <DependentUpon>202107060425460_MissedPunchModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108110900565_MediclaimIntimation.cs" />
+    <Compile Include="Migrations\202108110900565_MediclaimIntimation.Designer.cs">
+      <DependentUpon>202108110900565_MediclaimIntimation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108260859370_FullAndFinal.cs" />
+    <Compile Include="Migrations\202108260859370_FullAndFinal.Designer.cs">
+      <DependentUpon>202108260859370_FullAndFinal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109041056241_IntimatorEmpId.cs" />
+    <Compile Include="Migrations\202109041056241_IntimatorEmpId.Designer.cs">
+      <DependentUpon>202109041056241_IntimatorEmpId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109070715366_AddRemarksInMedDependent.cs" />
+    <Compile Include="Migrations\202109070715366_AddRemarksInMedDependent.Designer.cs">
+      <DependentUpon>202109070715366_AddRemarksInMedDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110040958569_TpaSanction.cs" />
+    <Compile Include="Migrations\202110040958569_TpaSanction.Designer.cs">
+      <DependentUpon>202110040958569_TpaSanction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112080924002_TpaSanctionHrRelDate.cs" />
+    <Compile Include="Migrations\202112080924002_TpaSanctionHrRelDate.Designer.cs">
+      <DependentUpon>202112080924002_TpaSanctionHrRelDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201100449485_AddPlCheckInLocation.cs" />
+    <Compile Include="Migrations\202201100449485_AddPlCheckInLocation.Designer.cs">
+      <DependentUpon>202201100449485_AddPlCheckInLocation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201110639201_VaccinationDetails.cs" />
+    <Compile Include="Migrations\202201110639201_VaccinationDetails.Designer.cs">
+      <DependentUpon>202201110639201_VaccinationDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201201054297_PlCheckLog.cs" />
+    <Compile Include="Migrations\202201201054297_PlCheckLog.Designer.cs">
+      <DependentUpon>202201201054297_PlCheckLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201241231515_ProgressReview.cs" />
+    <Compile Include="Migrations\202201241231515_ProgressReview.Designer.cs">
+      <DependentUpon>202201241231515_ProgressReview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204051047370_SapUserId.cs" />
+    <Compile Include="Migrations\202204051047370_SapUserId.Designer.cs">
+      <DependentUpon>202204051047370_SapUserId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204080414285_AddressProof.cs" />
+    <Compile Include="Migrations\202204080414285_AddressProof.Designer.cs">
+      <DependentUpon>202204080414285_AddressProof.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205110926067_VehicleReq.cs" />
+    <Compile Include="Migrations\202205110926067_VehicleReq.designer.cs">
+      <DependentUpon>202205110926067_VehicleReq.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208250956488_AttdPunchFieldsAdded.cs" />
+    <Compile Include="Migrations\202208250956488_AttdPunchFieldsAdded.designer.cs">
+      <DependentUpon>202208250956488_AttdPunchFieldsAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202209150910021_AttdPunchFieldInLocation.cs" />
+    <Compile Include="Migrations\202209150910021_AttdPunchFieldInLocation.designer.cs">
+      <DependentUpon>202209150910021_AttdPunchFieldInLocation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202211210550323_NewLeaveRuleTable.cs" />
+    <Compile Include="Migrations\202211210550323_NewLeaveRuleTable.designer.cs">
+      <DependentUpon>202211210550323_NewLeaveRuleTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AddressProof.cs" />
+    <Compile Include="Models\ApplReleaseStatus.cs" />
+    <Compile Include="Models\Banks.cs" />
+    <Compile Include="Models\Categories.cs" />
+    <Compile Include="Models\Company.cs" />
+    <Compile Include="Models\Contractors.cs" />
+    <Compile Include="Models\Departments.cs" />
+    <Compile Include="Models\Designations.cs" />
+    <Compile Include="Models\EmpAddress.cs" />
+    <Compile Include="Models\Employees.cs" />
+    <Compile Include="Models\EmpSeparation.cs" />
+    <Compile Include="Models\EmpTypes.cs" />
+    <Compile Include="Models\EmpUniform.cs" />
+    <Compile Include="Models\GaReleaseStrategies.cs" />
+    <Compile Include="Models\GaReleaseStrategyLevels.cs" />
+    <Compile Include="Models\GatePass.cs" />
+    <Compile Include="Models\GpAdviceDetails.cs" />
+    <Compile Include="Models\GpAdvices.cs" />
+    <Compile Include="Models\GpReleaseStrategies.cs" />
+    <Compile Include="Models\GpReleaseStrategyLevels.cs" />
+    <Compile Include="Models\GradeReviews.cs" />
+    <Compile Include="Models\Grades.cs" />
+    <Compile Include="Models\FullAndFinal.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\LeaveApplicationDetails.cs" />
+    <Compile Include="Models\LeaveApplications.cs" />
+    <Compile Include="Models\LeaveBalance.cs" />
+    <Compile Include="Models\LeaveChecks.cs" />
+    <Compile Include="Models\LeaveRules.cs" />
+    <Compile Include="Models\LeaveTypes.cs" />
+    <Compile Include="Models\Locations.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Materials.cs" />
+    <Compile Include="Models\MedDependent.cs" />
+    <Compile Include="Models\MedEmpUhid.cs" />
+    <Compile Include="Models\MedicalFitness.cs" />
+    <Compile Include="Models\MedIntimation.cs" />
+    <Compile Include="Models\MedPolicy.cs" />
+    <Compile Include="Models\MissedPunch.cs" />
+    <Compile Include="Models\MissedPunchReleaseStatus.cs" />
+    <Compile Include="Models\NoDuesCreators.cs" />
+    <Compile Include="Models\NoDuesDept.cs" />
+    <Compile Include="Models\NoDuesDeptDetails.cs" />
+    <Compile Include="Models\NoDuesDeptList.cs" />
+    <Compile Include="Models\NoDuesMaster.cs" />
+    <Compile Include="Models\NoDuesReleasers.cs" />
+    <Compile Include="Models\NoDuesReleaseStatus.cs" />
+    <Compile Include="Models\NoDuesStatus.cs" />
+    <Compile Include="Models\NoDuesUnitHead.cs" />
+    <Compile Include="Models\OpenMonth.cs" />
+    <Compile Include="Models\PlCheckLog.cs" />
+    <Compile Include="Models\ReimbConv.cs" />
+    <Compile Include="Models\Reimbursements.cs" />
+    <Compile Include="Models\ReleaseAuth.cs" />
+    <Compile Include="Models\ReleaseGroups.cs" />
+    <Compile Include="Models\ReleaseStatus.cs" />
+    <Compile Include="Models\ReleaseStrategies.cs" />
+    <Compile Include="Models\ReleaseStrategyLevels.cs" />
+    <Compile Include="Models\RequestDetails.cs" />
+    <Compile Include="Models\RequestRelease.cs" />
+    <Compile Include="Models\Requests.cs" />
+    <Compile Include="Models\ReviewDetails.cs" />
+    <Compile Include="Models\Reviews.cs" />
+    <Compile Include="Models\RoleAuth.cs" />
+    <Compile Include="Models\Roles.cs" />
+    <Compile Include="Models\RoleUsers.cs" />
+    <Compile Include="Models\SapUserIds.cs" />
+    <Compile Include="Models\Sections.cs" />
+    <Compile Include="Models\Shifts.cs" />
+    <Compile Include="Models\ShiftScheduleDetails.cs" />
+    <Compile Include="Models\ShiftSchedules.cs" />
+    <Compile Include="Models\SsOpenMonth.cs" />
+    <Compile Include="Models\Stations.cs" />
+    <Compile Include="Models\TaxConfig.cs" />
+    <Compile Include="Models\TaxDeclarationHistory.cs" />
+    <Compile Include="Models\TaxDeclarations.cs" />
+    <Compile Include="Models\TaxDetailsBankDeposit.cs" />
+    <Compile Include="Models\TaxDetailsInsurance.cs" />
+    <Compile Include="Models\TaxDetailsMutualFunds.cs" />
+    <Compile Include="Models\TaxDetailsNsc.cs" />
+    <Compile Include="Models\TaxDetailsPpf.cs" />
+    <Compile Include="Models\TaxDetailsRent.cs" />
+    <Compile Include="Models\TaxDetailsSukanya.cs" />
+    <Compile Include="Models\TaxDetailsUlip.cs" />
+    <Compile Include="Models\TpaRelease.cs" />
+    <Compile Include="Models\TpaSanction.cs" />
+    <Compile Include="Models\Units.cs" />
+    <Compile Include="Models\Vaccination.cs" />
+    <Compile Include="Models\VehicleReq.cs" />
+    <Compile Include="Models\Vendors.cs" />
+    <Compile Include="Models\WorkGroups.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\requirement.txt" />
+    <Content Include="Content\bootstrap-lumen.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\ESS.pubxml" />
+    <Content Include="Scripts\bootstrap.min.js.map">
+      <DependentUpon>bootstrap.min.js</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js.map">
+      <DependentUpon>jquery-1.10.2.min.js</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Scripts\jquery.validate.min.js.map">
+      <DependentUpon>jquery.validate.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js.map">
+      <DependentUpon>jquery.validate.unobtrusive.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\respond.min.js.map">
+      <DependentUpon>respond.min.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201712260719014_InitialModel.resx">
+      <DependentUpon>201712260719014_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712290834269_AddedSection.resx">
+      <DependentUpon>201712290834269_AddedSection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712290913252_AddedSecCodeEverywhere.resx">
+      <DependentUpon>201712290913252_AddedSecCodeEverywhere.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801040519351_AddedFieldsToLeaveAppDtl.resx">
+      <DependentUpon>201801040519351_AddedFieldsToLeaveAppDtl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801081332261_AddedActiveInLeaveType.resx">
+      <DependentUpon>201801081332261_AddedActiveInLeaveType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801091222277_AddedLeaveRules.resx">
+      <DependentUpon>201801091222277_AddedLeaveRules.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801091225204_AddedLeaveRules1.resx">
+      <DependentUpon>201801091225204_AddedLeaveRules1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801091403457_AddedLeaveRules2.resx">
+      <DependentUpon>201801091403457_AddedLeaveRules2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801240511397_AddedCancellationInLeaveApp.resx">
+      <DependentUpon>201801240511397_AddedCancellationInLeaveApp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801240517020_AddedCancellationInLeaveAppDtl.resx">
+      <DependentUpon>201801240517020_AddedCancellationInLeaveAppDtl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802080535515_RemovedCatFromRelease.resx">
+      <DependentUpon>201802080535515_RemovedCatFromRelease.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802160458595_ChangeLengthOfRelCode.resx">
+      <DependentUpon>201802160458595_ChangeLengthOfRelCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802160500231_ChangeLengthOfRelCodeInAuth.resx">
+      <DependentUpon>201802160500231_ChangeLengthOfRelCodeInAuth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802160503215_AddedEmpCodeAsKeyInAuth.resx">
+      <DependentUpon>201802160503215_AddedEmpCodeAsKeyInAuth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802161009065_ChangeRelCodeLenInAPpRel.resx">
+      <DependentUpon>201802161009065_ChangeRelCodeLenInAPpRel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802260401171_AddedEmailtoEmployeeModel.resx">
+      <DependentUpon>201802260401171_AddedEmailtoEmployeeModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803260423584_AddCancellationPostedFlag.resx">
+      <DependentUpon>201803260423584_AddCancellationPostedFlag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803270455152_RemoveFieldsFromReleaseStrategy.resx">
+      <DependentUpon>201803270455152_RemoveFieldsFromReleaseStrategy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806270412151_RemoveSecCOde.resx">
+      <DependentUpon>201806270412151_RemoveSecCOde.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807021147009_AddLeaveType.resx">
+      <DependentUpon>201807021147009_AddLeaveType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807180558313_AddedEmpUniform.resx">
+      <DependentUpon>201807180558313_AddedEmpUniform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807180708406_UpdateEmpUniform.resx">
+      <DependentUpon>201807180708406_UpdateEmpUniform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807180715490_UpdateEmpUniforms.resx">
+      <DependentUpon>201807180715490_UpdateEmpUniforms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807270535433_GatePassDbCreated.resx">
+      <DependentUpon>201807270535433_GatePassDbCreated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807270726347_GatePassCharFieldConverted.resx">
+      <DependentUpon>201807270726347_GatePassCharFieldConverted.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808070927011_AddedEmployeePresentAddress.resx">
+      <DependentUpon>201808070927011_AddedEmployeePresentAddress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808110426058_AddPerEmail.resx">
+      <DependentUpon>201808110426058_AddPerEmail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808110936454_OtFlagAddedInEmp.resx">
+      <DependentUpon>201808110936454_OtFlagAddedInEmp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808130715415_AddedCounterInEmpAddress.resx">
+      <DependentUpon>201808130715415_AddedCounterInEmpAddress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810091010248_GPReleaseFieldsAdded.resx">
+      <DependentUpon>201810091010248_GPReleaseFieldsAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810120451136_AddYearMonthToGatePass.resx">
+      <DependentUpon>201810120451136_AddYearMonthToGatePass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810130648502_AttdFieldsinGatePassModel.resx">
+      <DependentUpon>201810130648502_AttdFieldsinGatePassModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810130702191_NullableDateiinGatePassModel.resx">
+      <DependentUpon>201810130702191_NullableDateiinGatePassModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810220715402_AddedAttdFieldsInGatePass.resx">
+      <DependentUpon>201810220715402_AddedAttdFieldsInGatePass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810220726599_UpdDtUserInReleaseStrategy.resx">
+      <DependentUpon>201810220726599_UpdDtUserInReleaseStrategy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810301215175_AddFlagsInEmpModel.resx">
+      <DependentUpon>201810301215175_AddFlagsInEmpModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811020546528_NewGpReleaseStrategy.resx">
+      <DependentUpon>201811020546528_NewGpReleaseStrategy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811020604427_AddNightRelFlaginRelAuth.resx">
+      <DependentUpon>201811020604427_AddNightRelFlaginRelAuth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811021008136_GpReleaseStrategyInGatepass.resx">
+      <DependentUpon>201811021008136_GpReleaseStrategyInGatepass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811021017556_ChangeFieldinGP.resx">
+      <DependentUpon>201811021017556_ChangeFieldinGP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811021023504_RemovedForeignKeyinGP.resx">
+      <DependentUpon>201811021023504_RemovedForeignKeyinGP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811130708498_AddNightFlagInGpReleaseStrategy.resx">
+      <DependentUpon>201811130708498_AddNightFlagInGpReleaseStrategy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812221157091_AddPostingAuditFieldsInLeave.resx">
+      <DependentUpon>201812221157091_AddPostingAuditFieldsInLeave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902070634387_LocationModel_EmpModelChange.resx">
+      <DependentUpon>201902070634387_LocationModel_EmpModelChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902140547119_LocationStaticFields.resx">
+      <DependentUpon>201902140547119_LocationStaticFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902191054293_AddLocationCodeInModels.resx">
+      <DependentUpon>201902191054293_AddLocationCodeInModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904220905541_TaxDeclarationTables.resx">
+      <DependentUpon>201904220905541_TaxDeclarationTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904241125538_AddFieldsInTaxDeclaratoin.resx">
+      <DependentUpon>201904241125538_AddFieldsInTaxDeclaratoin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904270502577_AddTaxConfig.resx">
+      <DependentUpon>201904270502577_AddTaxConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904270519044_AddSapIdinEmployee.resx">
+      <DependentUpon>201904270519044_AddSapIdinEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904270616460_AddCompAccInEmployee.resx">
+      <DependentUpon>201904270616460_AddCompAccInEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905011218254_AddBanks.resx">
+      <DependentUpon>201905011218254_AddBanks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905011227070_ChangeBankNameLength.resx">
+      <DependentUpon>201905011227070_ChangeBankNameLength.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905020418162_AddSSfieldInTaxDeclaration.resx">
+      <DependentUpon>201905020418162_AddSSfieldInTaxDeclaration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905060500550_MoreTaxDetailsAdded.resx">
+      <DependentUpon>201905060500550_MoreTaxDetailsAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905060524210_ChangesInTaxDetails.resx">
+      <DependentUpon>201905060524210_ChangesInTaxDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905080550478_AddTaxDetailsRent.resx">
+      <DependentUpon>201905080550478_AddTaxDetailsRent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905101157501_AddFieldsInTaxDeclarationheader.resx">
+      <DependentUpon>201905101157501_AddFieldsInTaxDeclarationheader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905200626275_AddCloseFlagInTaxConfig.resx">
+      <DependentUpon>201905200626275_AddCloseFlagInTaxConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905210915519_AddTaxDeclarationHistory.resx">
+      <DependentUpon>201905210915519_AddTaxDeclarationHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905210941264_AddTaxDeclarationHistoryKey.resx">
+      <DependentUpon>201905210941264_AddTaxDeclarationHistoryKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905280336068_AddRoles.resx">
+      <DependentUpon>201905280336068_AddRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905300944281_AddLockedFlaginTaxDeclaration.resx">
+      <DependentUpon>201905300944281_AddLockedFlaginTaxDeclaration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908010419268_AddGatePassAdvice.resx">
+      <DependentUpon>201908010419268_AddGatePassAdvice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908010637256_AddGaReleaseStrategy.resx">
+      <DependentUpon>201908010637256_AddGaReleaseStrategy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908011010578_ChangeInGpAdvice.resx">
+      <DependentUpon>201908011010578_ChangeInGpAdvice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908051038291_ChangeInGpAdvice1.resx">
+      <DependentUpon>201908051038291_ChangeInGpAdvice1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908060607267_AddedPostingFieldsinGpAdvice.resx">
+      <DependentUpon>201908060607267_AddedPostingFieldsinGpAdvice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908170823139_AddedFieldsinGpAdvice.resx">
+      <DependentUpon>201908170823139_AddedFieldsinGpAdvice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908190819061_AddMaterialMaster.resx">
+      <DependentUpon>201908190819061_AddMaterialMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908200539032_AddFieldInMaterialMaster.resx">
+      <DependentUpon>201908200539032_AddFieldInMaterialMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908200858438_AddedVendorMaster.resx">
+      <DependentUpon>201908200858438_AddedVendorMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908210358412_AddHsnInMaterialMaster.resx">
+      <DependentUpon>201908210358412_AddHsnInMaterialMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908210437111_test.resx">
+      <DependentUpon>201908210437111_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908230532294_AddGaReleaserFlaginEmpMast.resx">
+      <DependentUpon>201908230532294_AddGaReleaserFlaginEmpMast.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911270911271_CoffDateAdded.resx">
+      <DependentUpon>201911270911271_CoffDateAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911290632331_ChangeInLeaveRules.resx">
+      <DependentUpon>201911290632331_ChangeInLeaveRules.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001060849324_AddFieldToTaxStructure.resx">
+      <DependentUpon>202001060849324_AddFieldToTaxStructure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001091013327_LeaveAppDetailFieldChanges.resx">
+      <DependentUpon>202001091013327_LeaveAppDetailFieldChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001160507395_ChangeInLocationModel.resx">
+      <DependentUpon>202001160507395_ChangeInLocationModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002080440514_RemovedPKFromTaxTables.resx">
+      <DependentUpon>202002080440514_RemovedPKFromTaxTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002080744461_AddCompositePKinTaxTables.resx">
+      <DependentUpon>202002080744461_AddCompositePKinTaxTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002240701364_FinLockInTaxDeclaration.resx">
+      <DependentUpon>202002240701364_FinLockInTaxDeclaration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004240636488_AddTaxRegimeInTaxDeclaration.resx">
+      <DependentUpon>202004240636488_AddTaxRegimeInTaxDeclaration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005111241404_FieldChangesInEmpAddress.resx">
+      <DependentUpon>202005111241404_FieldChangesInEmpAddress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005130430212_ChangeInFieldLengthEmpAddress.resx">
+      <DependentUpon>202005130430212_ChangeInFieldLengthEmpAddress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005210505581_WhyThisErrorIsComing.resx">
+      <DependentUpon>202005210505581_WhyThisErrorIsComing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006080553093_AddBirthdatePanInEmployee.resx">
+      <DependentUpon>202006080553093_AddBirthdatePanInEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006110856474_ShiftScheduleTables.resx">
+      <DependentUpon>202006110856474_ShiftScheduleTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006120627566_ShiftScheduleOpenMonthTable.resx">
+      <DependentUpon>202006120627566_ShiftScheduleOpenMonthTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006160713325_AddFiledInLeaveDetails.resx">
+      <DependentUpon>202006160713325_AddFiledInLeaveDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006161045051_AddRemarkFieldInShiftSchedule.resx">
+      <DependentUpon>202006161045051_AddRemarkFieldInShiftSchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006180655592_ChangeKeyInShiftSchedule.resx">
+      <DependentUpon>202006180655592_ChangeKeyInShiftSchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009150421411_AddReimbAndReimbConvTables.resx">
+      <DependentUpon>202009150421411_AddReimbAndReimbConvTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010080455300_TaxHomeLoan2.resx">
+      <DependentUpon>202010080455300_TaxHomeLoan2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010090516174_TaxDeclFieldAddLoan2.resx">
+      <DependentUpon>202010090516174_TaxDeclFieldAddLoan2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010201057022_MediclaimInitialConfig.resx">
+      <DependentUpon>202010201057022_MediclaimInitialConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010210529578_ChangeInMedDependentModel.resx">
+      <DependentUpon>202010210529578_ChangeInMedDependentModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010270733354_MedicalFitness.resx">
+      <DependentUpon>202010270733354_MedicalFitness.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010281153237_ChangeInMedDependent.resx">
+      <DependentUpon>202010281153237_ChangeInMedDependent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011090844157_InitialNoDuesConfig.resx">
+      <DependentUpon>202011090844157_InitialNoDuesConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011181217593_NoDuesDeptDetails.resx">
+      <DependentUpon>202011181217593_NoDuesDeptDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011300536431_NoDuesMasterChanges.resx">
+      <DependentUpon>202011300536431_NoDuesMasterChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012010349308_NoDuesUnitHeadRelease.resx">
+      <DependentUpon>202012010349308_NoDuesUnitHeadRelease.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012181240097_AddNewFieldInMedDependent.resx">
+      <DependentUpon>202012181240097_AddNewFieldInMedDependent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101221110547_RequestForBackDatedSSChange.resx">
+      <DependentUpon>202101221110547_RequestForBackDatedSSChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104190617565_NewAddressFieldsAdded.resx">
+      <DependentUpon>202104190617565_NewAddressFieldsAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104290934011_IsSubmittedAddedInTaxDecl.resx">
+      <DependentUpon>202104290934011_IsSubmittedAddedInTaxDecl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105260449262_EmpSeparation.resx">
+      <DependentUpon>202105260449262_EmpSeparation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106110957254_ChangesInEmpSeparation.resx">
+      <DependentUpon>202106110957254_ChangesInEmpSeparation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107060425460_MissedPunchModule.resx">
+      <DependentUpon>202107060425460_MissedPunchModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108110900565_MediclaimIntimation.resx">
+      <DependentUpon>202108110900565_MediclaimIntimation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108260859370_FullAndFinal.resx">
+      <DependentUpon>202108260859370_FullAndFinal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109041056241_IntimatorEmpId.resx">
+      <DependentUpon>202109041056241_IntimatorEmpId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109070715366_AddRemarksInMedDependent.resx">
+      <DependentUpon>202109070715366_AddRemarksInMedDependent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110040958569_TpaSanction.resx">
+      <DependentUpon>202110040958569_TpaSanction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112080924002_TpaSanctionHrRelDate.resx">
+      <DependentUpon>202112080924002_TpaSanctionHrRelDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201100449485_AddPlCheckInLocation.resx">
+      <DependentUpon>202201100449485_AddPlCheckInLocation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201110639201_VaccinationDetails.resx">
+      <DependentUpon>202201110639201_VaccinationDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201201054297_PlCheckLog.resx">
+      <DependentUpon>202201201054297_PlCheckLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201241231515_ProgressReview.resx">
+      <DependentUpon>202201241231515_ProgressReview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204051047370_SapUserId.resx">
+      <DependentUpon>202204051047370_SapUserId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204080414285_AddressProof.resx">
+      <DependentUpon>202204080414285_AddressProof.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205110926067_VehicleReq.resx">
+      <DependentUpon>202205110926067_VehicleReq.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208250956488_AttdPunchFieldsAdded.resx">
+      <DependentUpon>202208250956488_AttdPunchFieldsAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202209150910021_AttdPunchFieldInLocation.resx">
+      <DependentUpon>202209150910021_AttdPunchFieldInLocation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211210550323_NewLeaveRuleTable.resx">
+      <DependentUpon>202211210550323_NewLeaveRuleTable.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>11858</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:9982/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

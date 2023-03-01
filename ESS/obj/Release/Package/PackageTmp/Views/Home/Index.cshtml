@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="">
+    <h2>Hello!</h2>
+    Following is the list of functions you can use via api:
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th> </th>
+            <th> API </th>
+            <th> Usage </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td colspan="3"> <strong>/api/employee </strong></td>
+        </tr>
+        <tr>
+            <td> GET </td>
+            <td> /api/employee </td>
+            <td> Gets employee information.</td>
+        </tr>
+        <tr>
+            <td> GET </td>
+            <td> /api/employee?empUnqId=xxxxxxxx </td>
+            <td> Gets employee information for particular employee.</td>
+        </tr>
+        <tr>
+            <td> POST </td>
+            <td> /api/employee (with JSON object) </td>
+            <td> Change employee password.</td>
+        </tr>
+        <tr>
+            <td colspan="3"> <strong>/api/login </strong></td>
+        </tr>
+            <tr>
+                <td> POST </td>
+                <td> /api/login (with JSON object) </td>
+                <td> Validates user login.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

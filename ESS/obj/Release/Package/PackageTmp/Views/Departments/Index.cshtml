@@ -1,0 +1,32 @@
+﻿@model IEnumerable<ESS.Models.Departments>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Department list</h2>
+
+<table class="table table-striped table-hover">
+    <thead>
+    <tr>
+        <th>Company</th>
+        <th>Work Group</th>
+        <th>Unit</th>
+        <th>Dept Code</th>
+        <th>Dept Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        @foreach (var dept in Model)
+        {
+            <tr>
+                <td>@dept.Company.CompName</td>
+                <td>@dept.WorkGroup.WrkGrpDesc</td>
+                <td>@dept.UnitCode</td>
+                <td>@dept.DeptCode</td>
+                <td>@dept.DeptName</td>
+            </tr>
+        }
+    </tbody>
+</table>

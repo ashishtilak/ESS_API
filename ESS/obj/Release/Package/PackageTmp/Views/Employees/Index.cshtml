@@ -1,0 +1,26 @@
+﻿@using PagedList
+@using PagedList.Mvc
+
+@model IPagedList<ESS.Models.Employees>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Employees</h2>
+
+<table class="table table-bordered table-hover">
+    @foreach (var emp in Model)
+    {
+        <tr>
+            <td>@emp.EmpUnqId</td>
+            <td>@emp.EmpName</td>
+            <td>@emp.Active</td>
+            <td>@emp.Departments.DeptName</td>
+        </tr>
+    }
+
+</table>
+
+@Html.PagedListPager(Model, pageNumber => Url.Action("Index", new { pageNumber = pageNumber }))

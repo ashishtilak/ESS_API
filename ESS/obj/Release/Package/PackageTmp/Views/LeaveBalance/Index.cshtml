@@ -1,0 +1,40 @@
+﻿@model IEnumerable<ESS.Models.LeaveBalance>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Leave Balance</h2>
+
+<table class="table table-bordered table-hover ">
+    <thead>
+    <tr>
+        <th>Employee Id</th>
+        <th> Leave Type </th>
+        <th>Opening</th>
+        <th>Availed</th>
+        <th>Balance</th>
+    </tr>
+    </thead>
+
+    @foreach (var leaveBal in Model)
+    {
+        <tr>
+            <td>
+                @leaveBal.EmpUnqId
+            </td>
+            <td>
+                @leaveBal.LeaveTypes.LeaveTypeName
+            </td>
+            <td>
+                @leaveBal.Opening
+            </td>
+            <td>
+                @leaveBal.Availed
+            </td>
+            <td>
+                @leaveBal.Balance
+            </td>
+        </tr>
+    }
+</table>

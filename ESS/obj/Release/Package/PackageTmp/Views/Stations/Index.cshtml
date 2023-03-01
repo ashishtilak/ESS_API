@@ -1,0 +1,34 @@
+﻿@model IEnumerable<ESS.Models.Stations>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Stations list</h2>
+
+<table class="table table-striped table-hover" >
+    <thead>
+    <tr>
+        <th>Company</th>
+        <th>Work Group</th>
+        <th>Unit</th>
+        <th>Department</th>
+        <th>Station Code</th>
+        <th>Station Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+    @foreach (var station in Model)
+    {
+        <tr>
+            <td>@station.Company.CompName</td>
+            <td>@station.WorkGroup.WrkGrpDesc</td>
+            <td>@station.UnitCode</td>
+            <td>@station.Department.DeptName</td>
+            <td>@station.StatCode</td>
+            <td>@station.StatName</td>
+        </tr>
+    }
+    </tbody>
+</table>
